@@ -1,14 +1,14 @@
 nav.navbar {
-  padding: 15px 0px;
   background: #2c3e50;
 
   a {
     color: #fff;
-    padding: 15px;
+    padding: 0px 15px;
     text-decoration: none;
 
     &:hover {
       cursor: pointer;
+      font-weight: bold;
     }
   }
 

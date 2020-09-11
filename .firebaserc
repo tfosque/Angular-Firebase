@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "sample-cart-ff1dc",
+    "staging": "sample-cart-ff1dc"
+  }
+}
