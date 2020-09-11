@@ -25,4 +25,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showCart() {
+    console.log('show cart...')
+
+  }
+
 }

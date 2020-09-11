@@ -12,13 +12,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CartComponent,
-    ProductComponent
+    ProductComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,
