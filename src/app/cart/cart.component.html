@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<h4>
+  <p class="header pt-3 pb-3">
+    <i class="fa fa-shopping-cart"></i>
+    Shopping Cart &nbsp;<span class="badge badge-primary">{{cart$.value.length > 0 && cart$.value.length}}</span>
+  </p>
+
+</h4>
+<ng-container *ngIf="cart$.value.length > 0; else emptyCart">
+  <div class="col-12 mt-2 mb-2 cart-item-container" *ngFor="let item of cart$ | async">
+    <app-cart-line-item [cartItem]="item"></app-cart-line-item>
+  </div>
+
+  <!-- Suggested Selling -->
+<app-suggested-selling></app-suggested-selling>
+</ng-container>
+
+<ng-template #emptyCart>
+  <div class="alert alert-warning">
+    <h5>Cart Message:</h5>
+    <p>Click on add cart to add items.</p>
+  </div>
+</ng-template>
+
+

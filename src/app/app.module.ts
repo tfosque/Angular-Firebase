@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
-import {MatActionListHarness} from '@angular/material/list/testing';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +10,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { CartLineItemComponent } from './cart/cart-line-item/cart-line-item.component';
+import { SuggestedSellingComponent } from './suggested-selling/suggested-selling.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +19,16 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     NavbarComponent,
     CartComponent,
     ProductComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    CartLineItemComponent,
+    SuggestedSellingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
-    MatMenuModule,
-    MatGridListModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

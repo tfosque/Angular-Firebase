@@ -1,4 +1,9 @@
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
+import { CartModel } from '../models/cartModel';
+
+/* SMART COMPONENT */
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +11,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  cart$ = new BehaviorSubject<CartModel[]>([]);
 
-  constructor() { }
+  constructor(
+    private readonly cartService: CartService
+  ) { }
 
   ngOnInit(): void {
+    this.cartService.getCartItems();
+    this.cartService.cart$.subscribe(cartItems => {
+      this.cart$.next(cartItems);
+    });
+  }
+
+  getCartItems() {
+
   }
 
 }

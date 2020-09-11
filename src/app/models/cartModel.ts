@@ -2,10 +2,11 @@
 
 export interface CartModel {
   id?: number;
-  quantity?: number;
-  totalPrice?: number;
+  qty?: number;
+  total?: number;
   price?: Price;
   details?: Details;
+  product?: string;
 }
 
 export interface Price {
