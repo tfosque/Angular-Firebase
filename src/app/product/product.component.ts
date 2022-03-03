@@ -1,3 +1,6 @@
+import { CartModel } from './../models/cartModel';
+import { BehaviorSubject } from 'rxjs';
+import { ProductsService } from './../services/products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component( {
@@ -6,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.scss']
 } )
 export class ProductComponent implements OnInit {
-  details: any = {};
+  //pageDetails = new BehaviorSubject<CartModel>( {} );
 
-  constructor() { }
+  pageDetails: CartModel;
+  constructor(
+    private productService: ProductsService
+  ) {
+    // this.pageDetails.details = {};
+  }
 
   ngOnInit(): void {
+    this.productService.pageDetails$
+      .subscribe( res => {
+        this.pageDetails = res;
+      } )
   }
 
 }

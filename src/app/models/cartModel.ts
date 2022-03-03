@@ -7,6 +7,9 @@ export interface CartModel {
   price?: Price;
   details?: Details;
   product?: string;
+  manufacturerNumber?: string;
+  variations?: any;
+  color?: any;
 }
 
 export interface Price {

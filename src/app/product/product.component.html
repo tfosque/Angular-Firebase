@@ -1,12 +1,23 @@
-<div class="row">
-  <div class="col-2">
-    <img width="122" height="100" style="background: grey" src="" alt="" />
+<div class="row mb-3 mt-3">
+  <div class="col-2 mt-3 mb-3">
+    <div
+      style="width: 194px; height: 124px"
+      [ngStyle]="{ 'background-color': pageDetails.color!.default }"
+    >
+      &nbsp;
+    </div>
   </div>
   <div class="col-10">
-    <div class="col"><h2>Product Name</h2></div>
-    <div class="col">1</div>
-    <div class="col">2</div>
-    <div class="col">3</div>
+    <h2>{{ pageDetails.details.itemOrProductDescription }}</h2>
+    <div class="row">
+      <div class="col-1">{{ pageDetails.manufacturerNumber }}</div>
+      &nbsp;
+      <div class="col-2">
+        {{ pageDetails.price.unitPrice | currency }}/
+        {{ pageDetails.price.uom }}
+      </div>
+    </div>
   </div>
+  <!-- variations component -->
+  <app-variations class="col-12" [colors]="pageDetails.color"></app-variations>
 </div>
-<!-- variations component -->

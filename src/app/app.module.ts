@@ -13,6 +13,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CartLineItemComponent } from './cart/cart-line-item/cart-line-item.component';
 import { SuggestedSellingComponent } from './suggested-selling/suggested-selling.component';
 import { ProductVariationComponent } from './product-variation/product-variation.component';
+import { VariationsComponent } from './variations/variations.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductVariationComponent } from './product-variation/product-variation
     BreadcrumbsComponent,
     CartLineItemComponent,
     SuggestedSellingComponent,
-    ProductVariationComponent
+    ProductVariationComponent,
+    VariationsComponent
   ],
   imports: [
     BrowserModule,
