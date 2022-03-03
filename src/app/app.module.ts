@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CartLineItemComponent } from './cart/cart-line-item/cart-line-item.component';
 import { SuggestedSellingComponent } from './suggested-selling/suggested-selling.component';
+import { ProductVariationComponent } from './product-variation/product-variation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SuggestedSellingComponent } from './suggested-selling/suggested-selling
     ProductComponent,
     BreadcrumbsComponent,
     CartLineItemComponent,
-    SuggestedSellingComponent
+    SuggestedSellingComponent,
+    ProductVariationComponent
   ],
   imports: [
     BrowserModule,

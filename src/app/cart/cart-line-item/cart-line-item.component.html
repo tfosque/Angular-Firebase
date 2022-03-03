@@ -6,7 +6,9 @@
     <div class="col-11">
       <div class="row">
         <div class="col-11 mb-2">
-          <a href="#">{{ cartItem.details.itemOrProductDescription }}</a>
+          <a [routerLink]="['/product/', cartItem.details.productId]">{{
+            cartItem.details.itemOrProductDescription
+          }}</a>
         </div>
         <div class="col-1"><i class="fa fa-trash"></i></div>
         <div class="col-2">#{{ cartItem.details.productId }}</div>

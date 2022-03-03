@@ -5,13 +5,13 @@ import { CartModel } from '../models/cartModel';
 
 /* SMART COMPONENT */
 
-@Component({
+@Component( {
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
-})
+} )
 export class CartComponent implements OnInit {
-  cart$ = new BehaviorSubject<CartModel[]>([]);
+  cart$ = new BehaviorSubject<CartModel[]>( [] );
 
   constructor(
     private readonly cartService: CartService
@@ -19,9 +19,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.getCartItems();
-    this.cartService.cart$.subscribe(cartItems => {
-      this.cart$.next(cartItems);
-    });
+    this.cartService.cart$.subscribe( cartItems => {
+      this.cart$.next( cartItems );
+      console.log( 'this:', this.cart$.value )
+    } );
   }
 
   getCartItems() {
