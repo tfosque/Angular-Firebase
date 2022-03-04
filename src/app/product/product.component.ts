@@ -9,20 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.scss']
 } )
 export class ProductComponent implements OnInit {
-  //pageDetails = new BehaviorSubject<CartModel>( {} );
 
   pageDetails: CartModel;
+  // Active Thumb
+  activeThumb = new BehaviorSubject<any>( '' );
   constructor(
     private productService: ProductsService
-  ) {
-    // this.pageDetails.details = {};
-  }
+  ) { }
 
   ngOnInit(): void {
+    // suscribe to changes on the newest thumb
+    this.productService.activeThumbFromChild$.subscribe( thumb => {
+      console.log( { thumb } );
+      this.activeThumb.next( thumb );
+    } )
+    // subscribe to pageDetails for latest changes
     this.productService.pageDetails$
       .subscribe( res => {
         this.pageDetails = res;
       } )
+
+    // Initialize first thumbnail
+    this.activeThumb.next( this.pageDetails.color.default );
+    console.log( 'this: color:', this.activeThumb.value );
   }
 
 }

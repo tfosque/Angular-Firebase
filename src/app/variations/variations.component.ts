@@ -1,3 +1,5 @@
+import { ProductsService } from './../services/products.service';
+import { BehaviorSubject } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component( {
@@ -6,21 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./variations.component.scss']
 } )
 export class VariationsComponent implements OnInit {
-  @Input() colors: any;
-  colorsAsArray: any;
-  colorKeys: any[] = [];
+  @Input() colors: any; // color variations object passed in from parent component
+  colorsAsArray: any; // array of colors
 
-  constructor() {
-
+  constructor(
+    private readonly prodService: ProductsService
+  ) {
   }
 
   ngOnInit(): void {
-    this.colorsAsArray = Object.keys( this.colors )
-    console.log( 'my colors:', this.colors, 'keys:', Object.keys( this.colors ) );
-    console.log( 'find:amber', this.colors['amber'] );
-    console.log( 'find:walnut', this.colors['walnut'] );
-    console.log( 'find:default', this.colors['default'] );
-    console.log( 'my colors:Array:', this.colorsAsArray );
+    this.colorsAsArray = Object.keys( this.colors ); // formatting as an array for looping in UI
   }
-
+  updateThumb( color: any ) {
+    // call product service to update thumb on user click
+    this.prodService.updateActiveThumb( color );
+  }
 }

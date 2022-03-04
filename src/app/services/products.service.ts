@@ -10,27 +10,19 @@ export class ProductsService {
   private pageDetails = new BehaviorSubject<CartModel>( {} );
   public pageDetails$ = this.pageDetails.asObservable(); // subscribe to get the latest
 
-  // Colors
-  /*   private colorsAsArray = new BehaviorSubject<any[]>( [] );
-    public colorsAsArrays$ = this.colorsAsArray.asObservable(); */
+  // Get active thumb object from dummy component (variations component where user clicks on new thumb)
+  private activeThumbFromChild = new BehaviorSubject<string>( '' );
+  public activeThumbFromChild$ = this.activeThumbFromChild.asObservable();
 
-  constructor() {
-    // this.setColorsAsArray( { default: 'gold', chestnut: 'brown', walnut: 'dark-brown', amber: 'gold' } )
-  }
+  constructor() { }
 
   public setProductPage( product: CartModel ): void {
     console.log( { product } );
     this.pageDetails.next( product );
   }
 
-  /*   public setColorsAsArray( colors: object ) {
-      // convert object of colors into array for ui to consume
-      // const testObj = { chestnut: 'brown', walnut: 'dark-brown', amber: 'gold' };
-      const testObj = colors;
-      console.log( { testObj } );
-      //
-      this.colorsAsArray.next( [testObj] );
-      console.log( 'convert:obj', this.colorsAsArray.value )
-  
-    } */
+  public updateActiveThumb( newThumb: string ): void {
+    if ( this.activeThumbFromChild.value === newThumb ) return; // no need to update if the same thumbnail
+    this.activeThumbFromChild.next( newThumb );
+  }
 }

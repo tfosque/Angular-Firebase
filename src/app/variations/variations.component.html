@@ -4,6 +4,7 @@
       *ngIf="thumb !== 'default'"
       style="width: 100%; height: 100px; cursor: pointer"
       [ngStyle]="{ 'background-color': colors[thumb] }"
+      (click)="updateThumb(colors[thumb])"
     >
       &nbsp;
     </div>

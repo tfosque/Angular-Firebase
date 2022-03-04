@@ -2,7 +2,7 @@
   <div class="col-2 mt-3 mb-3">
     <div
       style="width: 194px; height: 124px"
-      [ngStyle]="{ 'background-color': pageDetails.color!.default }"
+      [ngStyle]="{ 'background-color': activeThumb | async }"
     >
       &nbsp;
     </div>
@@ -18,6 +18,6 @@
       </div>
     </div>
   </div>
-  <!-- variations component -->
+  <!-- variations component PASS VARIATIONS to child component -->
   <app-variations class="col-12" [colors]="pageDetails.color"></app-variations>
 </div>
